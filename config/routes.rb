@@ -1,5 +1,6 @@
 SampleApp::Application.routes.draw do
-  get "users/new"
+
+	resources :users
 
   get "pages/home"
 
@@ -12,6 +13,7 @@ SampleApp::Application.routes.draw do
 	match '/contact', :to => 'pages#contact'
 	match '/about',   :to => 'pages#about'
 	match '/help',    :to => 'pages#help'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
