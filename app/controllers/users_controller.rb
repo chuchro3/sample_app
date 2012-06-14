@@ -42,7 +42,7 @@ before_filter :admin_user,   :only => :destroy
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(:page => params[:page])
     @title = @user.name
-    current_user.unfollow!(@user)
+    #current_user.unfollow!(@user)
   end
 
   def update

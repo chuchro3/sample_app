@@ -74,7 +74,9 @@ class User < ActiveRecord::Base
   end
 
   def unfollow!(followed)
-    relationships.find_by_followed_id(followed).destroy
+    if !relationships.find_by_followed_id(followed).nil?
+	relationships.find_by_followed_id(followed).destroy
+    end
   end
 	
 

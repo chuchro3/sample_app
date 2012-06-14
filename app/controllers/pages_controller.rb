@@ -4,7 +4,9 @@ class PagesController < ApplicationController
 
     if signed_in?
       @micropost = Micropost.new
-      current_user.unfollow!(current_user)
+      if !current_user.nil? 
+	current_user.unfollow!(current_user)
+      end
       @feed_items = current_user.feed.paginate(:page => params[:page])
     end
   end
