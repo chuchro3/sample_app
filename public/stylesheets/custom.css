@@ -294,3 +294,11 @@ div.field, div.actions {
   list-style: square;
   color: #303030
 }
+
+ul.users {
+  margin-top: 1em;
+}
+
+.users li {
+  list-style: none;
+}
