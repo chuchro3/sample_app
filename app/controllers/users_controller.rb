@@ -6,20 +6,20 @@ before_filter :correct_user, :only => [:edit, :update]
 before_filter :admin_user,   :only => :destroy
 
   def new
-		@user = User.new
+    @user = User.new
     @title = "Sign up"
   end
 
   def create
-		@user = User.new(params[:user])
-		if @user.save
-			sign_in @user
-			flash[:success] = "Welcome to the Sample App!"
-			redirect_to @user
-		else
-			@title = "Sign up"
-			render 'new'
-		end
+	@user = User.new(params[:user])
+	if @user.save
+	  sign_in @user
+	  flash[:success] = "Welcome to the Sample App!"
+	  redirect_to @user
+	else
+	  @title = "Sign up"
+	  render 'new'
+	end
 	end
 
   def destroy
@@ -42,6 +42,7 @@ before_filter :admin_user,   :only => :destroy
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(:page => params[:page])
     @title = @user.name
+    current_user.unfollow!(@user)
   end
 
   def update
